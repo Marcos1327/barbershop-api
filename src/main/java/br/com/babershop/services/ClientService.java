@@ -1,5 +1,7 @@
 package br.com.babershop.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,11 @@ public class ClientService {
 		clientRepository.findById(id).orElseThrow(() -> new Exception("Client not found"));
 		clientRepository.deleteById(id);
 		
+	}
+	
+	public List<Client> getAllClients() {
+		var client = clientRepository.findAll();
+		return client;
 	}
 	
 	

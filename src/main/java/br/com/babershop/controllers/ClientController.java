@@ -1,8 +1,11 @@
 package br.com.babershop.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +32,11 @@ public class ClientController {
 	private ResponseEntity<Void> delete(@PathVariable Long id) throws Exception {
 		clientService.delete(id);
 		return ResponseEntity.ok().build();
+	}
+	
+	@GetMapping
+	private ResponseEntity<List<Client>> getAllClient() {
+		return ResponseEntity.ok(clientService.getAllClients());
 	}
 
 }
