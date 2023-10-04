@@ -24,6 +24,13 @@ public class ClientService {
 		return client;
 	}
 	
+	public void delete(Long id) throws Exception {
+		
+		clientRepository.findById(id).orElseThrow(() -> new Exception("Client not found"));
+		clientRepository.deleteById(id);
+		
+	}
+	
 	
 
 }
