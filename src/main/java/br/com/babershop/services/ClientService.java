@@ -38,6 +38,10 @@ public class ClientService {
 		return client;
 	}
 	
+	public int getSizeQueue() {
+		return clientRepository.findAll().size();
+	}
+	
 	
 
 }

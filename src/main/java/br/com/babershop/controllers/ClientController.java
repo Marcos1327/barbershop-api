@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.babershop.model.Client;
@@ -37,6 +36,11 @@ public class ClientController {
 	@GetMapping
 	private ResponseEntity<List<Client>> getAllClient() {
 		return ResponseEntity.ok(clientService.getAllClients());
+	}
+	
+	@GetMapping("/queue")
+	private ResponseEntity<Integer> getSizeQueue() {
+		return ResponseEntity.ok(clientService.getSizeQueue());
 	}
 
 }
